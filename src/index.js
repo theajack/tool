@@ -3,7 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import {Dialog, Select, Option, Button, Slider,
-    Tabs, TabPane, Form, FormItem, Input, Radio, RadioGroup} from 'element-ui';
+    Tabs, TabPane, Form, FormItem, Input, Radio, RadioGroup,
+    Table, TableColumn} from 'element-ui';
 import 'element-ui/lib/theme-chalk/base.css';
 import 'element-ui/lib/theme-chalk/dialog.css';
 import 'element-ui/lib/theme-chalk/select.css';
@@ -15,11 +16,13 @@ import 'element-ui/lib/theme-chalk/form.css';
 import 'element-ui/lib/theme-chalk/input.css';
 import 'element-ui/lib/theme-chalk/message.css';
 import 'element-ui/lib/theme-chalk/radio.css';
+import 'element-ui/lib/theme-chalk/table.css';
 import './style/element.less';
 import './style/index.less';
 
 [Dialog, Select, Option, Button, Slider,
-    Tabs, TabPane, Form, FormItem, Input, Radio, RadioGroup].forEach((c) => Vue.use(c));
+    Tabs, TabPane, Form, FormItem, Input, Radio, RadioGroup,
+    Table, TableColumn].forEach((c) => Vue.use(c));
 
 new Vue({
     router,
