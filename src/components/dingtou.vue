@@ -71,9 +71,11 @@
         mounted () {
             chart = init(this.$refs.chart);
             this.count();
-            setTimeout(chart.resize, 0);
         },
         methods: {
+            resizeChart () {
+                setTimeout(chart.resize, 0);
+            },
             count () {
                 if (!this.buys || !this.rates) {
                     return Message.error('输入不可为空');
@@ -112,6 +114,7 @@
                     }]
                 };
                 chart.setOption(option);
+                this.resizeChart();
             },
             dingtou (every, rates) {
                 let money = 0;

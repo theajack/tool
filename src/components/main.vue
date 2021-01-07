@@ -1,7 +1,7 @@
 <template>
     <el-tabs v-model='activeName' @tab-click='handleClick'>
         <el-tab-pane label='复利计算' name='fuli'><Fuli /></el-tab-pane>
-        <el-tab-pane label='定投模拟' name='dingtou'><Dingtou /></el-tab-pane>
+        <el-tab-pane label='定投模拟' name='dingtou'><Dingtou ref='dingtou'/></el-tab-pane>
         <el-tab-pane label='颜色RBG' name='color'><Color /></el-tab-pane>
     </el-tabs>
 </template>
@@ -24,9 +24,11 @@
             }
         },
         methods: {
-            handleClick (tab, event) {
-                console.log(tab, event);
+            handleClick () {
                 location.hash = this.activeName;
+                if (this.activeName === 'dingtou') {
+                    this.$refs.dingtou.resizeChart();
+                }
             }
         }
     };
