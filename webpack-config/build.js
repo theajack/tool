@@ -9,7 +9,7 @@ module.exports = {
     mode: 'production',
     entry: path.resolve('./', 'src/index.js'),
     output: {
-        path: path.resolve('./', 'npm'),
+        path: path.resolve('./', 'docs'),
         filename: 'tool.min.js',
         library: 'tool',
         libraryTarget: 'umd',

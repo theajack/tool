@@ -1,3 +1,7 @@
+## 一些小工具
+
+[点击访问](https://theajack.gitee.io/tool)
+
 ### This is a project build with [EBuild-Cli](https://github.com/theajack/ebuild-cli)
 
 ### Install dependencies
