@@ -3,15 +3,17 @@
         <el-tab-pane label='复利计算' name='fuli'><Fuli /></el-tab-pane>
         <el-tab-pane label='定投模拟' name='dingtou'><Dingtou ref='dingtou'/></el-tab-pane>
         <el-tab-pane label='颜色RBG' name='color'><Color /></el-tab-pane>
+        <el-tab-pane label='BMI计算' name='bmi'><Bmi /></el-tab-pane>
     </el-tabs>
 </template>
 <script>
     import Color from './color.vue';
     import Fuli from './fuli.vue';
     import Dingtou from './dingtou.vue';
+    import Bmi from './bmi.vue';
     
     export default {
-        components: {Color, Fuli, Dingtou},
+        components: {Color, Fuli, Dingtou, Bmi},
         data () {
             return {
                 activeName: 'fuli'
