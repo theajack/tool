@@ -19,36 +19,13 @@
             <el-form-item label=''>
                 <el-button @click='count'>计算</el-button>
             </el-form-item>
-            <el-table
-                :data='tableData'
-                stripe
-                style='width: 100%'>
-                <el-table-column
-                    prop='day'
-                    label='天数'
-                    width='180'>
-                </el-table-column>
-                <el-table-column
-                    prop='buy'
-                    label='买入'
-                    width='180'>
-                </el-table-column>
-                <el-table-column
-                    prop='money'
-                    label='本金'>
-                </el-table-column>
-                <el-table-column
-                    prop='rate'
-                    label='收益率'>
-                </el-table-column>
-                <el-table-column
-                    prop='add'
-                    label='盈亏'>
-                </el-table-column>
-                <el-table-column
-                    prop='left'
-                    label='剩余本金'>
-                </el-table-column>
+            <el-table :data='tableData' stripe style='width: 100%'>
+                <el-table-column prop='day' label='天数'></el-table-column>
+                <el-table-column prop='buy' label='买入'></el-table-column>
+                <el-table-column prop='money' label='本金'></el-table-column>
+                <el-table-column prop='rate' label='收益率'></el-table-column>
+                <el-table-column prop='add' label='盈亏'></el-table-column>
+                <el-table-column prop='left' label='剩余本金'></el-table-column>
             </el-table>
             <div ref='chart' class='chart'></div>
         </el-form>
