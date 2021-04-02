@@ -138,6 +138,7 @@
                 this.step = 3;
             },
             restart () {
+                this.countResult = '';
                 this.step = 1;
                 this.calendarData = [];
                 this.step2ChooseDate = [];
