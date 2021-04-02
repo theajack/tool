@@ -4,6 +4,7 @@
         <el-tab-pane label='定投模拟' name='dingtou'><Dingtou ref='dingtou'/></el-tab-pane>
         <el-tab-pane label='颜色RBG' name='color'><Color /></el-tab-pane>
         <el-tab-pane label='BMI计算' name='bmi'><Bmi /></el-tab-pane>
+        <el-tab-pane label='日历Magic' name='magic'><Magic /></el-tab-pane>
     </el-tabs>
 </template>
 <script>
@@ -11,9 +12,10 @@
     import Fuli from './fuli.vue';
     import Dingtou from './dingtou.vue';
     import Bmi from './bmi.vue';
+    import Magic from './magic.vue';
     
     export default {
-        components: {Color, Fuli, Dingtou, Bmi},
+        components: {Color, Fuli, Dingtou, Bmi, Magic},
         data () {
             return {
                 activeName: 'fuli'

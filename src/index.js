@@ -19,10 +19,13 @@ import 'element-ui/lib/theme-chalk/radio.css';
 import 'element-ui/lib/theme-chalk/table.css';
 import './style/element.less';
 import './style/index.less';
+import './vant';
 
+// element
 [Dialog, Select, Option, Button, Slider,
     Tabs, TabPane, Form, FormItem, Input, Radio, RadioGroup,
     Table, TableColumn].forEach((c) => Vue.use(c));
+
 
 new Vue({
     router,
