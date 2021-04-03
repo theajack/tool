@@ -32,7 +32,7 @@ const routes = [
         path: '/fuli',
         name: 'fuli',
         component: Fuli,
-        meta: {title: '福利计算', icon: 'after-sale'}
+        meta: {title: '复利计算', icon: 'after-sale'}
     },
     {
         path: '/color',

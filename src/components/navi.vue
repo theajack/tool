@@ -77,6 +77,7 @@
 <style>
     .navi-icon{
         margin-right: 10px;
+        font-size: 17px!important;
     }
     .navi-icon:last-child{
         margin-right: 0;
