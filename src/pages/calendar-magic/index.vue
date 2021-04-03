@@ -199,7 +199,7 @@
                         this._removeItem(this.step3DisableDate, value);
                     }
                 });
-            }
+            },
         }
     };
 </script>
@@ -252,6 +252,9 @@
     text-align: center;
     font-weight: bold;
     color: #005ab4;
+}
+.van-picker__confirm, .van-picker__cancel{
+    opacity: 0;
 }
 </style>
 

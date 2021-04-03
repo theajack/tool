@@ -1,6 +1,29 @@
 <template>
     <div>
-        <el-form ref='form' class='form' label-width='120px'>
+        <div v-if='isMobile'>
+            <div style='margin: 10px 0;'>
+                <van-field label-width='120' v-model='buys' :label='typeName[type] +"(元):"' placeholder='单位：元' />
+                <div class='dingtou-tip' v-if='type===2'>请输入每天的投入金额(元)，以空格分隔</div>
+            </div>
+
+            <div style='margin: 10px 0;'>
+                <van-field label-width='120' v-model='rates' label='涨跌(%):' placeholder='单位：%' />
+                <div class='dingtou-tip'>请输入每天的涨跌幅(%)，以空格分隔</div>
+            </div>
+
+            <div style='margin: 10px 0;'>
+                <van-radio-group v-model='type' direction='horizontal'>
+                    <van-radio :name='0'>不定投</van-radio>
+                    <van-radio :name='1'>平均定投</van-radio>
+                    <van-radio :name='2'>自定义定投</van-radio>
+                </van-radio-group>
+            </div>
+
+            <div style='margin: 10px;'>
+                <van-button round block type='info' @click='count' size='normal'>计算</van-button>
+            </div>
+        </div>
+        <el-form v-else ref='form' class='form' label-width='120px'>
             <el-form-item :label='typeName[type] +"(元):"'>
                 <el-input placeholder='单位：元' v-model='buys'></el-input>
                 <div v-if='type===2'>请输入每天的投入金额(元)，以空格分隔</div>
@@ -19,16 +42,16 @@
             <el-form-item label=''>
                 <el-button @click='count'>计算</el-button>
             </el-form-item>
-            <el-table :data='tableData' stripe style='width: 100%'>
-                <el-table-column prop='day' label='天数'></el-table-column>
-                <el-table-column prop='buy' label='买入'></el-table-column>
-                <el-table-column prop='money' label='本金'></el-table-column>
-                <el-table-column prop='rate' label='收益率'></el-table-column>
-                <el-table-column prop='add' label='盈亏'></el-table-column>
-                <el-table-column prop='left' label='剩余本金'></el-table-column>
-            </el-table>
-            <div ref='chart' class='chart'></div>
         </el-form>
+        <el-table :data='tableData' stripe style='width: 100%'>
+            <el-table-column prop='day' label='天数'></el-table-column>
+            <el-table-column prop='buy' label='买入'></el-table-column>
+            <el-table-column prop='money' label='本金'></el-table-column>
+            <el-table-column prop='rate' label='收益率'></el-table-column>
+            <el-table-column prop='add' label='盈亏'></el-table-column>
+            <el-table-column prop='left' label='剩余本金'></el-table-column>
+        </el-table>
+        <div ref='chart' class='chart'></div>
     </div>
 </template>
 <script>
@@ -150,5 +173,10 @@
 .form {
     width: 80%;
     min-width: 330px;
+}
+.dingtou-tip{
+    color: #aaa;
+    font-size: 13px;
+    padding: 0 20px;
 }
 </style>

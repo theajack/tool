@@ -1,23 +1,21 @@
 <template>
-    <div>
-        <!-- Hello Ebuild!
-        <div>
-            <router-link :to='{name:"main"}'>Main</router-link>
-            <router-link :to='{name:"color"}'>About</router-link>
-            <router-link :to='{name:"home"}'>Home</router-link>
-        </div>
-        <router-view/> -->
-        <Main />
+    <div class='tool-main'>
+        <Navi />
+        <router-view/>
     </div>
 </template>
 <script>
-    import Main from './components/main.vue';
+    // import Main from './components/main.vue';
+    import Navi from './components/navi.vue';
     export default {
-        components: {Main},
+        components: {Navi},
         data () {
             return {
                 activeName: 'color'
             };
+        },
+        mounted () {
+            window._app = this;
         },
         methods: {
             handleClick (tab, event) {
@@ -27,4 +25,12 @@
         }
     };
 </script>
+<style scoped>
+    .tool-main{
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px;
+        padding-top: 56px;
+    }
+</style>
 

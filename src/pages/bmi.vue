@@ -1,24 +1,45 @@
 <template>
-    <el-form ref='form' class='form' label-width='75px'>
-        <el-form-item label='公式:'>
-            <div>BMI = 体重(kg) ÷ 身高(m)<sup>2</sup></div>
-            <div class='tip'>身体质量指数(Body Mass Index, 简称BMI), 亦称克托莱指数, 是目前国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。</div>
-        </el-form-item>
-        <el-form-item label='体重(kg):'>
-            <el-input v-model.number='weight'></el-input>
-        </el-form-item>
-        <el-form-item label='身高(cm):'>
-            <el-input v-model.number='height'></el-input>
-        </el-form-item>
-        <el-form-item label=''>
-            <el-button @click='count'>计算</el-button>
-        </el-form-item>
-        <div v-if='value !== 0'>
-            <el-form-item label='结果:'>
+    <div>
+        <div v-if='isMobile'>
+            <div style='margin: 10px 0; text-align: center'>
+                <div>BMI = 体重(kg) ÷ 身高(m)<sup>2</sup></div>
+                <div class='tip'>身体质量指数(Body Mass Index, 简称BMI), 亦称克托莱指数, 是目前国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。</div>
+            </div>
+            <div style='margin: 10px 0;'>
+                <van-field label-width='75' v-model.number='weight' label='体重(kg):' />
+            </div>
+            <div style='margin: 10px 0;'>
+                <van-field label-width='75' v-model.number='height' label='身高(cm):' />
+            </div>
+            <div style='margin: 10px;'>
+                <van-button round block type='info' @click='count' size='normal'>计算</van-button>
+            </div>
+            <div v-if='value !== 0'>
                 <div>BMI = {{resultWeight}}kg ÷ {{resultHeight/100}}m<sup>2</sup> = {{value}}</div>
                 <div class='bmi-width' :style='{"background-color": resultColor}'>{{result}}</div>
                 <img class='bmi-width' :src='require("../images/bmi.png").default' alt=''>
+            </div>
+        </div>
+        <el-form v-else ref='form' class='form' label-width='75px'>
+            <el-form-item label='公式:'>
+                <div>BMI = 体重(kg) ÷ 身高(m)<sup>2</sup></div>
+                <div class='tip'>身体质量指数(Body Mass Index, 简称BMI), 亦称克托莱指数, 是目前国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。</div>
             </el-form-item>
+            <el-form-item label='体重(kg):'>
+                <el-input v-model.number='weight'></el-input>
+            </el-form-item>
+            <el-form-item label='身高(cm):'>
+                <el-input v-model.number='height'></el-input>
+            </el-form-item>
+            <el-form-item label=''>
+                <el-button @click='count'>计算</el-button>
+            </el-form-item>
+            <div v-if='value !== 0'>
+                <el-form-item label='结果:'>
+                    <div>BMI = {{resultWeight}}kg ÷ {{resultHeight/100}}m<sup>2</sup> = {{value}}</div>
+                    <div class='bmi-width' :style='{"background-color": resultColor}'>{{result}}</div>
+                    <img class='bmi-width' :src='require("../images/bmi.png").default' alt=''>
+                </el-form-item>
             <!-- <el-slider
                 :min='10'
                 :max='50'
@@ -26,8 +47,9 @@
                 v-model='value'
                 :marks='marks'>
             </el-slider> -->
-        </div>
-    </el-form>
+            </div>
+        </el-form>
+    </div>
 </template>
 <script>
     import {Message} from 'element-ui';
