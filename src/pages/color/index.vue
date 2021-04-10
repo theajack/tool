@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='padding-10'>
         <div>
             <div style='margin-bottom: 10px'>颜色: rgb({{r}}, {{g}}, {{b}})</div>
             <div class='block' :style='{"background-color": "rgb("+r+","+g+", "+b+")"}'>

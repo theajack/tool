@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='padding-10'>
         <div v-if='isMobile'>
             <div style='text-align: center'>总金 = 本金 × (1+收益率)<sup>时间</sup></div>
 

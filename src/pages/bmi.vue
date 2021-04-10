@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='padding-10'>
         <div v-if='isMobile'>
             <div style='margin: 10px 0; text-align: center'>
                 <div>BMI = 体重(kg) ÷ 身高(m)<sup>2</sup></div>

@@ -25,12 +25,14 @@
         }
     };
 </script>
-<style scoped>
+<style>
     .tool-main{
         max-width: 600px;
         margin: 0 auto;
+        padding-top: 46px;
+    }
+    .padding-10{
         padding: 10px;
-        padding-top: 56px;
     }
 </style>
 

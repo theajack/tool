@@ -13,13 +13,25 @@
                     :key='item.name'
                     :title='item.title'
                     @click='routeNavi(item.path)'/>
+                <div class='navi-devider'>外链</div>
+                <van-sidebar-item
+                    v-for='item in LinkData'
+                    :key='item.name'
+                    :title='item.title'
+                    @click='routeNavi(item.path)'/>
+                <div class='navi-devider'>开发者</div>
+                <van-sidebar-item
+                    v-for='item in Develop'
+                    :key='item.name'
+                    :title='item.title'
+                    @click='routeNavi(item.path)'/>
             </van-sidebar>
         </van-popup>
     </div>
 </template>
 <script>
     import router from '../router';
-    import {LinkData} from '../util/util';
+    import {LinkData, Develop} from '../util/util';
     export default {
         data () {
             return {
@@ -28,6 +40,8 @@
                 title: '',
                 isHome: false,
                 routeData: [],
+                LinkData,
+                Develop
             };
         },
         mounted () {
@@ -46,7 +60,7 @@
                     path: item.path,
                 };
             });
-            this.routeData.push(...LinkData);
+            // this.routeData.push(...LinkData);
         },
         methods: {
             routeNavi (path) {
@@ -88,6 +102,13 @@
     }
     .van-sidebar-item--select:before{
         background-color: #1989fa!important;
+    }
+    .navi-devider{
+        padding-left: 6px;
+        border-left: 4px solid #aaa;
+        margin: 10px 0;
+        font-size: 14px;
+        color: #444;
     }
 </style>
 

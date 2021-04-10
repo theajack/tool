@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='padding-10'>
         <div v-if='isMobile'>
             <div style='margin: 10px 0;'>
                 <van-field label-width='120' v-model='buys' :label='typeName[type] +"(元):"' placeholder='单位：元' />

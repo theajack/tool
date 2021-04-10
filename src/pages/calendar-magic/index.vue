@@ -32,7 +32,7 @@
                     {{date === -1?'':date}}
                 </van-col>
             </van-row>
-            <div class='c-result' v-if='step === 3'>
+            <div class='c-result' v-if='step === 3 && showResult'>
                 {{countResult}}
             </div>
             <div style='margin: 15px'>
@@ -42,6 +42,13 @@
                     </van-col>
                     <van-col :span='step === 2 ? "12":"24"'>
                         <van-button round block type='info' plain @click='restart' size='normal'>重新开始</van-button>
+                    </van-col>
+                </van-row>
+            </div>
+            <div style='margin: 15px' v-if='step === 3 && !showResult && step3ChooseDate.length === 4'>
+                <van-row gutter='20'>
+                    <van-col span='24'>
+                        <van-button round block type='info' plain @click='clickShowResult' size='normal'>显示计算结果</van-button>
                     </van-col>
                 </van-row>
             </div>
@@ -68,10 +75,14 @@
                 step3DisableDate: [],
 
                 step2ChooseDate: [],
-                step3ChooseDate: []
+                step3ChooseDate: [],
+                showResult: false,
             };
         },
         methods: {
+            clickShowResult () {
+                this.showResult = true;
+            },
             getDays (year, month) {
                 return new Date(year, month, 0).getDate();
             },
@@ -139,6 +150,7 @@
             },
             restart () {
                 this.countResult = '';
+                this.showResult = false;
                 this.step = 1;
                 this.calendarData = [];
                 this.step2ChooseDate = [];
@@ -172,6 +184,7 @@
 
                     // ! 不给取消 否则会容易发现都一样
                     if (this.step3ChooseDate.includes(date)) return;
+
                     let choose = this._toggleItem(this.step3ChooseDate, date);
                     this._checkStep3Choose(date, choose);
                     let sum = 0;

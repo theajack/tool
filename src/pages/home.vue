@@ -8,15 +8,35 @@
                 @click='route(item.path)'
                 :text='item.title' />
         </van-grid>
+        <van-divider>外链</van-divider>
+        <van-grid :column-num='3'>
+            <van-grid-item
+                v-for='item in LinkData'
+                :key='item.name'
+                :icon='item.icon'
+                @click='route(item.path)'
+                :text='item.title' />
+        </van-grid>
+        <van-divider>开发者</van-divider>
+        <van-grid :column-num='3'>
+            <van-grid-item
+                v-for='item in Develop'
+                :key='item.name'
+                :icon='item.icon'
+                @click='route(item.path)'
+                :text='item.title' />
+        </van-grid>
     </div>
 </template>
 <script>
     import {LinkData} from '../util/util';
+    import {Develop} from '../util/util';
     export default {
         data () {
             return {
                 routeData: [],
-                linkData: LinkData,
+                LinkData,
+                Develop
             };
         },
         mounted () {
@@ -30,7 +50,7 @@
                     });
                 }
             });
-            this.routeData.push(...LinkData);
+            // this.routeData.push(...LinkData);
         },
         methods: {
             route (path) {
